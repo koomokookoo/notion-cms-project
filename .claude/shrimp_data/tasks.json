@@ -1,0 +1,546 @@
+{
+  "tasks": [
+    {
+      "id": "26483b90-a6b4-4c84-9492-10d7fa9b5de2",
+      "name": "[P1-1] 패키지 설치 및 디렉토리 구조 생성",
+      "description": "@notionhq/client 패키지 설치 및 블로그 전용 디렉토리(src/components/blog, src/components/notion) 생성. 이미 존재하는 src/lib, src/types, src/components/layout은 그대로 유지.",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "package.json",
+          "type": "TO_MODIFY",
+          "description": "@notionhq/client 의존성 추가"
+        },
+        {
+          "path": "src/components/blog",
+          "type": "CREATE",
+          "description": "블로그 전용 컴포넌트 디렉토리"
+        },
+        {
+          "path": "src/components/notion",
+          "type": "CREATE",
+          "description": "Notion 블록 렌더링 컴포넌트 디렉토리"
+        }
+      ],
+      "implementationGuide": "1. npm install @notionhq/client 실행\n2. src/components/blog/ 디렉토리 생성 (PostCard, PostList, CategoryFilter, SearchBar 예정)\n3. src/components/notion/ 디렉토리 생성 (BlockRenderer 예정)\n4. package.json에 @notionhq/client 추가 확인",
+      "verificationCriteria": "npm run build 또는 npm run dev 실행 시 @notionhq/client import 오류 없음. src/components/blog/, src/components/notion/ 디렉토리 존재.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "806e3d1e-1a75-4415-b59b-0b088261fb11",
+      "name": "[P1-2] 환경변수 설정",
+      "description": ".env.local에 NOTION_API_KEY, NOTION_DATABASE_ID 설정. .env.example 생성(값은 플레이스홀더). .gitignore에 .env.local 포함 확인.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "26483b90-a6b4-4c84-9492-10d7fa9b5de2"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": ".env.local",
+          "type": "CREATE",
+          "description": "실제 Notion API 키 (git 제외)"
+        },
+        {
+          "path": ".env.example",
+          "type": "CREATE",
+          "description": "환경변수 예시 파일 (git 포함)"
+        },
+        {
+          "path": ".gitignore",
+          "type": "TO_MODIFY",
+          "description": ".env.local git 추적 제외 확인"
+        }
+      ],
+      "implementationGuide": "1. .env.local 생성: NOTION_API_KEY=secret_xxx, NOTION_DATABASE_ID=xxx\n2. .env.example 생성: NOTION_API_KEY=secret_xxxxxxxxxxxx, NOTION_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n3. .gitignore에 .env.local 있는지 확인 (없으면 추가)",
+      "verificationCriteria": ".env.example 파일 존재. .gitignore에 .env.local 포함. .env.local에 두 변수 모두 설정됨.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "80abb1f3-7682-4d09-a146-579d959a9966",
+      "name": "[P1-3] 글로벌 레이아웃 블로그용 설정",
+      "description": "src/app/layout.tsx의 메타데이터를 블로그 이름으로 교체. 기존 ThemeProvider, Toaster, TooltipProvider 구조 유지. src/lib/constants.ts의 SITE_CONFIG도 블로그 정보로 업데이트.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "806e3d1e-1a75-4415-b59b-0b088261fb11"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "메타데이터 블로그용 교체",
+          "lineStart": 18,
+          "lineEnd": 24
+        },
+        {
+          "path": "src/lib/constants.ts",
+          "type": "TO_MODIFY",
+          "description": "SITE_CONFIG, NAV_ITEMS 블로그용 업데이트"
+        }
+      ],
+      "implementationGuide": "1. layout.tsx metadata.title.default를 블로그명으로 변경\n2. metadata.description을 블로그 설명으로 변경\n3. src/lib/constants.ts SITE_CONFIG.name, description 업데이트\n4. NAV_ITEMS를 블로그용(홈, 카테고리 등)으로 교체",
+      "verificationCriteria": "npm run dev 실행 후 브라우저 탭 제목이 블로그명으로 표시됨. 기존 ThemeProvider/Toaster 정상 동작.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "a93f8ea5-57e1-421b-b797-3d3364c2a7c3",
+      "name": "[P2-1] Notion 전용 타입 정의 (src/types/notion.ts)",
+      "description": "블로그에 필요한 모든 Notion 관련 타입을 src/types/notion.ts에 정의. any 타입 절대 금지. src/types/index.ts는 수정하지 않음.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "80abb1f3-7682-4d09-a146-579d959a9966"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/types/notion.ts",
+          "type": "CREATE",
+          "description": "Notion 전용 타입 정의"
+        },
+        {
+          "path": "src/types/index.ts",
+          "type": "REFERENCE",
+          "description": "기존 공통 타입 참고 (수정 금지)"
+        }
+      ],
+      "implementationGuide": "Post 인터페이스: id(string), title(string), category(string), tags(string[]), publishedAt(string), slug(string)\nCategory 타입: string\nNotionBlockType: union type (paragraph | heading_1 | heading_2 | heading_3 | bulleted_list_item | numbered_list_item | code | image | quote | divider | unsupported)\nRichText 인터페이스: type, text.content, annotations(bold,italic,code,strikethrough)\nNotionBlock 인터페이스: id, type(NotionBlockType), richText(RichText[]), language(code블록용), url(image용), children(NotionBlock[])",
+      "verificationCriteria": "npx tsc --noEmit 에러 없음. any 타입 0개. Post, Category, NotionBlock, RichText 타입 모두 export됨.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "352d7a73-b247-4903-a674-8e1ba3fb4fd1",
+      "name": "[P2-2] Notion API 공통 함수 구현 (src/lib/notion.ts)",
+      "description": "Notion 클라이언트 초기화 및 모든 API 호출 함수를 src/lib/notion.ts에 구현. 환경변수 없으면 빌드 시 오류 발생하도록 처리.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "a93f8ea5-57e1-421b-b797-3d3364c2a7c3"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/notion.ts",
+          "type": "CREATE",
+          "description": "Notion API 클라이언트 및 fetch 함수"
+        },
+        {
+          "path": "src/types/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "Post, NotionBlock 타입 import"
+        },
+        {
+          "path": ".env.local",
+          "type": "DEPENDENCY",
+          "description": "NOTION_API_KEY, NOTION_DATABASE_ID"
+        }
+      ],
+      "implementationGuide": "1. Client 초기화: new Client({ auth: process.env.NOTION_API_KEY })\n2. fetchPages(): databases.query({ database_id, filter: {Status=발행됨}, sorts: [{Published, descending}] }) → Post[]\n3. fetchPageContent(pageId): blocks.children.list({ block_id: pageId }) → NotionBlock[]\n4. fetchCategories(): fetchPages()에서 category 추출 후 중복제거 → string[]\n5. parsePost(page): Notion 페이지 속성 → Post 타입 변환 파서 (타입 가드 사용)\n6. 환경변수 누락 시 throw Error",
+      "verificationCriteria": "fetchPages() 호출 시 Status=발행됨 글 목록 반환. fetchPageContent() 호출 시 블록 배열 반환. any 타입 0개. npx tsc --noEmit 에러 없음.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "ff1cf88e-cb9c-498e-8260-a5c99f7c0a81",
+      "name": "[P2-3] PostCard, PostList 컴포넌트 구현",
+      "description": "블로그 글 카드(PostCard)와 목록(PostList) Server Component 구현. 기존 shadcn/ui Card, Badge 컴포넌트 재사용.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "352d7a73-b247-4903-a674-8e1ba3fb4fd1"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/blog/PostCard.tsx",
+          "type": "CREATE",
+          "description": "글 카드 컴포넌트"
+        },
+        {
+          "path": "src/components/blog/PostList.tsx",
+          "type": "CREATE",
+          "description": "글 목록 컴포넌트"
+        },
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "DEPENDENCY",
+          "description": "shadcn Card 재사용"
+        },
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "DEPENDENCY",
+          "description": "shadcn Badge 재사용"
+        },
+        {
+          "path": "src/types/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "Post 타입"
+        }
+      ],
+      "implementationGuide": "PostCard (src/components/blog/PostCard.tsx):\n- props: post: Post\n- shadcn Card 컴포넌트 사용\n- 제목(Link to /posts/[id]), 카테고리(Badge), 태그(Badge 배열), 발행일 표시\n- hover 효과, 반응형\n\nPostList (src/components/blog/PostList.tsx):\n- props: posts: Post[]\n- grid 레이아웃으로 PostCard 목록 렌더링\n- posts 빈 배열 시 빈 상태 UI 표시",
+      "verificationCriteria": "PostCard가 제목/카테고리/태그/발행일을 렌더링함. PostList가 PostCard 배열을 그리드로 렌더링. npx tsc --noEmit 에러 없음. 모바일/데스크탑 반응형 확인.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "f5afa802-bf3b-43a7-91c4-9bcf9efd52c7",
+      "name": "[P3-1] 블로그 홈 페이지 구현 (app/page.tsx)",
+      "description": "기존 스타터킷 홈(app/page.tsx)을 블로그 글 목록 페이지로 교체. fetchPages() 호출, PostList 렌더링, ISR revalidate=3600, generateMetadata 포함.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ff1cf88e-cb9c-498e-8260-a5c99f7c0a81"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "블로그 홈으로 교체"
+        },
+        {
+          "path": "src/components/blog/PostList.tsx",
+          "type": "DEPENDENCY",
+          "description": "글 목록 컴포넌트"
+        },
+        {
+          "path": "src/components/layout/Header.tsx",
+          "type": "DEPENDENCY",
+          "description": "기존 Header 재사용"
+        },
+        {
+          "path": "src/lib/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "fetchPages()"
+        }
+      ],
+      "implementationGuide": "1. export const revalidate = 3600\n2. export async function generateMetadata() → title, description 반환\n3. export default async function HomePage():\n   - const posts = await fetchPages()\n   - Header 컴포넌트(기존 재사용) + main 영역에 PostList 렌더링\n   - 카테고리 필터/검색 영역 placeholder (Phase 4에서 구현)\n4. 기존 스타터킷 hero/features/CTA 섹션 제거",
+      "verificationCriteria": "/ 접속 시 Notion 발행된 글 목록이 최신순으로 표시됨. revalidate=3600 설정 확인. 페이지 title이 블로그명으로 표시됨.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "13bf523b-fb65-405b-bac8-d374d7a591b8",
+      "name": "[P3-2] Notion BlockRenderer 컴포넌트 구현",
+      "description": "Notion 페이지 블록을 타입별로 HTML로 렌더링하는 BlockRenderer 컴포넌트 구현. 미지원 블록은 폴백 처리.",
+      "notes": "next/image 사용 시 Notion 이미지 도메인을 next.config.ts의 images.remotePatterns에 추가해야 함 (notion.so, s3.us-west-2.amazonaws.com 등)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "352d7a73-b247-4903-a674-8e1ba3fb4fd1"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/notion/BlockRenderer.tsx",
+          "type": "CREATE",
+          "description": "Notion 블록 렌더러"
+        },
+        {
+          "path": "src/types/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "NotionBlock, RichText 타입"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "TO_MODIFY",
+          "description": "Notion 이미지 도메인 remotePatterns 추가"
+        }
+      ],
+      "implementationGuide": "src/components/notion/BlockRenderer.tsx:\n- props: blocks: NotionBlock[]\n- switch(block.type)으로 각 타입 렌더링:\n  - paragraph: <p>에 RichText 렌더링\n  - heading_1/2/3: <h1>/<h2>/<h3>\n  - bulleted_list_item: <ul><li>\n  - numbered_list_item: <ol><li>\n  - code: <pre><code> (언어 표시)\n  - image: next/image (external 도메인 next.config.ts에 추가 필요)\n  - quote: <blockquote>\n  - divider: <hr>\n  - unsupported: null (렌더링 스킵)\n- RichText 렌더링: bold(<strong>), italic(<em>), code(<code>), strikethrough(<s>) 처리",
+      "verificationCriteria": "paragraph/heading/code/image/quote/divider 블록이 정상 렌더링됨. 미지원 블록 시 콘솔 에러 없음. next/image 도메인 설정 완료.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "cd918b9c-4792-4b3d-a5c1-4e335c9e371f",
+      "name": "[P3-3] 블로그 글 상세 페이지 구현 (app/posts/[id]/page.tsx)",
+      "description": "동적 라우트 /posts/[id] 페이지 구현. fetchPageContent로 블록 조회, BlockRenderer로 렌더링. generateStaticParams, generateMetadata, 이전/다음 글 네비게이션 포함.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f5afa802-bf3b-43a7-91c4-9bcf9efd52c7"
+        },
+        {
+          "taskId": "13bf523b-fb65-405b-bac8-d374d7a591b8"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:05.142Z",
+      "updatedAt": "2026-06-29T18:03:05.142Z",
+      "relatedFiles": [
+        {
+          "path": "src/app/posts/[id]/page.tsx",
+          "type": "CREATE",
+          "description": "글 상세 페이지"
+        },
+        {
+          "path": "src/components/notion/BlockRenderer.tsx",
+          "type": "DEPENDENCY",
+          "description": "블록 렌더러"
+        },
+        {
+          "path": "src/lib/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "fetchPageContent, fetchPages"
+        },
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "DEPENDENCY",
+          "description": "카테고리/태그 뱃지"
+        },
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "DEPENDENCY",
+          "description": "이전/다음 버튼"
+        }
+      ],
+      "implementationGuide": "1. export const revalidate = 3600\n2. generateStaticParams(): fetchPages()로 id 목록 반환\n3. generateMetadata({ params }): 해당 post의 title/description으로 메타데이터 반환\n4. PostPage({ params: { id } }):\n   - fetchPageContent(id)로 블록 조회\n   - fetchPages()로 전체 글 목록 조회 후 이전/다음 글 계산\n   - 글 제목, 카테고리(Badge), 태그(Badge 배열), 발행일 헤더 표시\n   - BlockRenderer로 본문 렌더링\n   - 이전/다음 글 링크(Button asChild + Link)\n5. 존재하지 않는 id → notFound() 호출",
+      "verificationCriteria": "/posts/[id] 접속 시 Notion 본문 렌더링됨. 존재하지 않는 id 접근 시 404 표시. 이전/다음 글 링크 동작. generateMetadata로 og 태그 포함.",
+      "analysisResult": "Notion CMS 블로그 개발. 기반: Next.js 16.2.9, React 19, TypeScript strict, Tailwind CSS v4, shadcn/ui(radix-nova). 기존 (auth)/(dashboard) 라우트 그룹 수정 금지. Notion API 호출은 src/lib/notion.ts 단일 진입점. 타입은 src/types/notion.ts 분리. ISR revalidate=3600 기본 적용."
+    },
+    {
+      "id": "499f1020-5cfd-4d54-a13a-cfae2a970b65",
+      "name": "[P4-1] 카테고리 필터 및 카테고리 페이지 구현",
+      "description": "CategoryFilter 클라이언트 컴포넌트와 /category/[category] 페이지 구현. 홈 페이지에 카테고리 필터 탭 연동.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "cd918b9c-4792-4b3d-a5c1-4e335c9e371f"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/blog/CategoryFilter.tsx",
+          "type": "CREATE",
+          "description": "카테고리 필터 클라이언트 컴포넌트"
+        },
+        {
+          "path": "src/app/category/[category]/page.tsx",
+          "type": "CREATE",
+          "description": "카테고리별 글 목록 페이지"
+        },
+        {
+          "path": "src/app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "CategoryFilter 삽입"
+        },
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "DEPENDENCY",
+          "description": "shadcn Tabs 재사용"
+        },
+        {
+          "path": "src/lib/notion.ts",
+          "type": "DEPENDENCY",
+          "description": "fetchCategories()"
+        }
+      ],
+      "implementationGuide": "CategoryFilter (src/components/blog/CategoryFilter.tsx):\n- 'use client'\n- props: categories: string[], selectedCategory: string, posts: Post[]\n- shadcn Tabs 컴포넌트 사용 (전체 탭 + 카테고리별 탭)\n- 선택된 카테고리에 따라 PostList 필터링하여 렌더링\n\napp/category/[category]/page.tsx:\n- generateStaticParams(): fetchCategories()로 카테고리 목록 반환\n- generateMetadata({ params }): 카테고리명 포함 메타데이터\n- fetchPages()로 전체 글 조회 후 해당 카테고리만 필터링\n- revalidate=3600\n\n홈 page.tsx 업데이트:\n- fetchCategories() 추가 호출\n- CategoryFilter 컴포넌트 삽입",
+      "verificationCriteria": "홈에서 카테고리 탭 클릭 시 해당 글만 필터링됨. /category/[category] URL 직접 접근 시 카테고리 글 목록 표시. generateStaticParams 동작 확인.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    },
+    {
+      "id": "4a30bb57-7e17-4c26-8e60-caebd6f0d8fb",
+      "name": "[P4-2] 검색 기능 구현 (클라이언트 사이드)",
+      "description": "SearchBar 클라이언트 컴포넌트 구현. 글 제목 기반 실시간 필터링. 검색 결과 없음 UI 포함.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "499f1020-5cfd-4d54-a13a-cfae2a970b65"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/blog/SearchBar.tsx",
+          "type": "CREATE",
+          "description": "검색 클라이언트 컴포넌트"
+        },
+        {
+          "path": "src/app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "SearchBar 삽입"
+        },
+        {
+          "path": "src/components/ui/input.tsx",
+          "type": "DEPENDENCY",
+          "description": "shadcn Input 재사용"
+        }
+      ],
+      "implementationGuide": "SearchBar (src/components/blog/SearchBar.tsx):\n- 'use client'\n- props: posts: Post[]\n- useState로 searchQuery 관리\n- input onChange마다 posts를 title 기준 filter\n- 필터링된 결과를 PostList에 전달\n- 검색어 있고 결과 0개: '검색 결과가 없습니다' 빈 상태 UI\n- debounce 불필요 (클라이언트 필터링이므로)\n\n홈 page.tsx 업데이트:\n- SearchBar 컴포넌트 삽입\n- CategoryFilter와 SearchBar 동시 사용 시 우선순위 정의 (검색어 있으면 검색 우선)",
+      "verificationCriteria": "검색창에 키워드 입력 시 제목 기준 실시간 필터링됨. 결과 없을 때 빈 상태 UI 표시. CategoryFilter와 충돌 없이 동작.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    },
+    {
+      "id": "bd632d27-e655-4133-9251-b9f0bbec5ac1",
+      "name": "[P4-3] SEO 최적화 (sitemap, robots, OG 태그)",
+      "description": "전체 페이지 generateMetadata OG 태그 완성. sitemap.ts와 robots.ts 생성.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "4a30bb57-7e17-4c26-8e60-caebd6f0d8fb"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": "src/app/sitemap.ts",
+          "type": "CREATE",
+          "description": "동적 sitemap 생성"
+        },
+        {
+          "path": "src/app/robots.ts",
+          "type": "CREATE",
+          "description": "robots.txt 생성"
+        },
+        {
+          "path": "src/app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "metadataBase 추가"
+        },
+        {
+          "path": "src/app/posts/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "OG article 태그 추가"
+        },
+        {
+          "path": "src/app/category/[category]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "OG 태그 추가"
+        }
+      ],
+      "implementationGuide": "app/sitemap.ts:\n- fetchPages()로 발행된 글 목록 조회\n- MetadataRoute.Sitemap 반환: 홈(/), 각 글(/posts/[id]), 카테고리 페이지\n\napp/robots.ts:\n- MetadataRoute.Robots 반환\n- Allow: /, Disallow: /dashboard, Sitemap URL 포함\n\n각 페이지 generateMetadata OG 태그 추가:\n- openGraph: title, description, type, url\n- 글 상세: openGraph.type='article', publishedTime, tags\n\napp/layout.tsx:\n- metadataBase 설정 (Vercel URL 또는 환경변수)",
+      "verificationCriteria": "/sitemap.xml 접근 시 발행된 글 URL 목록 반환. /robots.txt 접근 시 정상 응답. 글 상세 페이지 소스에 og:title, og:description 태그 포함.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    },
+    {
+      "id": "2c277583-3a17-4128-8e17-796b676856ca",
+      "name": "[P5-1] 성능 최적화",
+      "description": "next/image 적용, ISR revalidate 최종 조정, 불필요한 Notion API 중복 호출 제거. Lighthouse 점수 80점 이상 목표.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bd632d27-e655-4133-9251-b9f0bbec5ac1"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/notion/BlockRenderer.tsx",
+          "type": "TO_MODIFY",
+          "description": "next/image 적용 확인"
+        },
+        {
+          "path": "src/app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "API 중복 호출 제거"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "TO_MODIFY",
+          "description": "이미지 최적화 설정 확인"
+        },
+        {
+          "path": "src/app/globals.css",
+          "type": "TO_MODIFY",
+          "description": "코드 블록 스크롤 스타일"
+        }
+      ],
+      "implementationGuide": "1. BlockRenderer의 image 블록에 next/image 적용 확인\n2. 홈 페이지에서 fetchPages()와 fetchCategories() 중복 호출 여부 확인 → fetchPages() 1회 호출 후 카테고리 추출로 통합\n3. 모든 블로그 페이지 revalidate=3600 설정 확인\n4. npm run build 후 번들 사이즈 확인\n5. Lighthouse CI 또는 브라우저 Lighthouse로 Performance 점수 측정\n6. 코드 블록 가로 스크롤 CSS 처리 (overflow-x: auto)",
+      "verificationCriteria": "Lighthouse Performance 80점 이상. fetchPages() 중복 호출 없음. 코드 블록 가로 스크롤 정상 동작.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    },
+    {
+      "id": "7cb9f4b0-482b-4a04-9d2a-d1ddb8a5b782",
+      "name": "[P5-2] 반응형 디자인 검증 및 개선",
+      "description": "모바일(~768px), 태블릿(768~1024px), 데스크탑(1024px~) 전 해상도에서 레이아웃 검증. 터치 인터랙션 및 모바일 폰트 점검.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "2c277583-3a17-4128-8e17-796b676856ca"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": "src/components/blog/PostList.tsx",
+          "type": "TO_MODIFY",
+          "description": "반응형 그리드 확인"
+        },
+        {
+          "path": "src/components/layout/Header.tsx",
+          "type": "TO_MODIFY",
+          "description": "모바일 헤더 점검"
+        },
+        {
+          "path": "src/app/posts/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "본문 max-width 설정"
+        },
+        {
+          "path": "src/components/blog/CategoryFilter.tsx",
+          "type": "TO_MODIFY",
+          "description": "탭 모바일 스크롤 처리"
+        }
+      ],
+      "implementationGuide": "1. Playwright 또는 브라우저 DevTools로 각 해상도 확인\n2. PostCard 그리드: 모바일 1열, 태블릿 2열, 데스크탑 3열\n3. Header 모바일 메뉴 (필요시 햄버거 메뉴)\n4. 글 상세 본문 max-width 설정으로 가독성 확보\n5. 이미지 블록 모바일 full-width 처리\n6. CategoryFilter 탭이 모바일에서 가로 스크롤 되도록 처리",
+      "verificationCriteria": "모바일/태블릿/데스크탑 모든 해상도에서 레이아웃 깨짐 없음. PostCard 그리드 반응형 동작. 코드 블록 가로 스크롤 정상.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    },
+    {
+      "id": "b9c1758f-04e7-4f60-9739-6e1f77438d86",
+      "name": "[P5-3] Vercel 배포 및 운영 검증",
+      "description": "GitHub 푸시 후 Vercel 프로젝트 연동, 환경변수 설정, 프로덕션 배포 및 전 기능 동작 검증.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "7cb9f4b0-482b-4a04-9d2a-d1ddb8a5b782"
+        }
+      ],
+      "createdAt": "2026-06-29T18:03:57.965Z",
+      "updatedAt": "2026-06-29T18:03:57.965Z",
+      "relatedFiles": [
+        {
+          "path": ".env.example",
+          "type": "REFERENCE",
+          "description": "Vercel 환경변수 설정 참고"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "REFERENCE",
+          "description": "빌드 설정 확인"
+        },
+        {
+          "path": "package.json",
+          "type": "REFERENCE",
+          "description": "build 스크립트 확인"
+        }
+      ],
+      "implementationGuide": "1. GitHub 저장소에 코드 푸시\n2. Vercel 프로젝트 생성 및 GitHub 저장소 연동\n3. Vercel 환경변수 설정: NOTION_API_KEY, NOTION_DATABASE_ID\n4. 프로덕션 배포 트리거 및 빌드 로그 확인\n5. 배포 URL에서 기능 검증:\n   - 홈(/) 글 목록 표시\n   - /posts/[id] 본문 렌더링\n   - /category/[category] 카테고리 필터\n   - 검색 기능\n   - /sitemap.xml 응답\n6. Notion에서 새 글 발행 후 1시간 내 반영 확인 (ISR revalidate=3600)",
+      "verificationCriteria": "Vercel 빌드 성공. 프로덕션 URL에서 글 목록/상세/카테고리/검색 모두 정상 동작. sitemap.xml 응답 확인. 환경변수 누락 에러 없음.",
+      "analysisResult": "Notion CMS 블로그 Phase 4~5. Phase 3 완료 후 진행. 카테고리 필터/검색은 Client Component. SEO, 반응형, Vercel 배포 포함."
+    }
+  ]
+}
