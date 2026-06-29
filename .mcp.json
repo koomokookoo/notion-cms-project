@@ -7,6 +7,15 @@
         "@playwright/mcp@latest"
       ],
       "env": {}
+    },
+    "shrimp-task-manager": {
+      "command": "node",
+      "args": ["/Users/kmkk/workspace/mcp-shrimp-task-manager/dist/index.js"],
+      "env": {
+        "DATA_DIR": "/Users/kmkk/workspace/notion-cms-project/.claude/shrimp_data",
+        "TEMPLATES_USE": "en",
+        "ENABLE_GUI": "true"
+      }
     }
   }
 }
