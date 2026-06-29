@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - link "StarterKit" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: StarterKit
+      - navigation [ref=e10]:
+        - link "대시보드" [ref=e11] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e12]
+          - text: 대시보드
+        - link "사용자" [ref=e17] [cursor=pointer]:
+          - /url: /dashboard/users
+          - img [ref=e18]
+          - text: 사용자
+        - link "분석" [ref=e23] [cursor=pointer]:
+          - /url: /dashboard/analytics
+          - img [ref=e24]
+          - text: 분석
+        - link "문서" [ref=e26] [cursor=pointer]:
+          - /url: /dashboard/documents
+          - img [ref=e27]
+          - text: 문서
+        - link "알림" [ref=e30] [cursor=pointer]:
+          - /url: /dashboard/notifications
+          - img [ref=e31]
+          - text: 알림
+        - link "설정" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - text: 설정
+    - generic [ref=e38]:
+      - banner [ref=e39]:
+        - generic [ref=e40]:
+          - button "테마 전환" [ref=e41]:
+            - img
+          - button "알림" [ref=e42]:
+            - img
+          - button "홍" [ref=e43]:
+            - generic [ref=e45]: 홍
+      - main [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e49]:
+            - heading "대시보드" [level=1] [ref=e50]
+            - paragraph [ref=e51]: 서비스 현황을 한눈에 확인하세요.
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - generic [ref=e54]:
+                - generic [ref=e55]: 총 사용자
+                - img [ref=e56]
+              - generic [ref=e61]:
+                - generic [ref=e62]: 12,847
+                - generic [ref=e63]:
+                  - img [ref=e64]
+                  - generic [ref=e67]: +12.5%
+                  - generic [ref=e68]: 지난 달 대비
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - generic [ref=e71]: 이번 달 매출
+                - img [ref=e72]
+              - generic [ref=e74]:
+                - generic [ref=e75]: ₩4,820,000
+                - generic [ref=e76]:
+                  - img [ref=e77]
+                  - generic [ref=e80]: +8.2%
+                  - generic [ref=e81]: 지난 달 대비
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: 신규 가입
+                - img [ref=e85]
+              - generic [ref=e90]:
+                - generic [ref=e91]: "382"
+                - generic [ref=e92]:
+                  - img [ref=e93]
+                  - generic [ref=e96]: "-3.1%"
+                  - generic [ref=e97]: 지난 달 대비
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 전환율
+                - img [ref=e101]
+              - generic [ref=e104]:
+                - generic [ref=e105]: 3.24%
+                - generic [ref=e106]:
+                  - img [ref=e107]
+                  - generic [ref=e110]: +0.4%
+                  - generic [ref=e111]: 지난 달 대비
+          - generic [ref=e112]:
+            - generic [ref=e114]: 최근 활동
+            - table [ref=e117]:
+              - rowgroup [ref=e118]:
+                - row "사용자 활동 상태 날짜" [ref=e119]:
+                  - columnheader "사용자" [ref=e120]
+                  - columnheader "활동" [ref=e121]
+                  - columnheader "상태" [ref=e122]
+                  - columnheader "날짜" [ref=e123]
+              - rowgroup [ref=e124]:
+                - row "김 김민준 minjun@example.com 새 프로젝트 생성 완료 2026-06-29" [ref=e125]:
+                  - cell "김 김민준 minjun@example.com" [ref=e126]:
+                    - generic [ref=e127]:
+                      - generic [ref=e129]: 김
+                      - generic [ref=e130]:
+                        - paragraph [ref=e131]: 김민준
+                        - paragraph [ref=e132]: minjun@example.com
+                  - cell "새 프로젝트 생성" [ref=e133]
+                  - cell "완료" [ref=e134]:
+                    - generic [ref=e135]: 완료
+                  - cell "2026-06-29" [ref=e136]
+                - row "이 이서연 seoyeon@example.com 플랜 업그레이드 완료 2026-06-29" [ref=e137]:
+                  - cell "이 이서연 seoyeon@example.com" [ref=e138]:
+                    - generic [ref=e139]:
+                      - generic [ref=e141]: 이
+                      - generic [ref=e142]:
+                        - paragraph [ref=e143]: 이서연
+                        - paragraph [ref=e144]: seoyeon@example.com
+                  - cell "플랜 업그레이드" [ref=e145]
+                  - cell "완료" [ref=e146]:
+                    - generic [ref=e147]: 완료
+                  - cell "2026-06-29" [ref=e148]
+                - row "박 박도윤 doyun@example.com 결제 처리 진행중 2026-06-28" [ref=e149]:
+                  - cell "박 박도윤 doyun@example.com" [ref=e150]:
+                    - generic [ref=e151]:
+                      - generic [ref=e153]: 박
+                      - generic [ref=e154]:
+                        - paragraph [ref=e155]: 박도윤
+                        - paragraph [ref=e156]: doyun@example.com
+                  - cell "결제 처리" [ref=e157]
+                  - cell "진행중" [ref=e158]:
+                    - generic [ref=e159]: 진행중
+                  - cell "2026-06-28" [ref=e160]
+                - row "최 최아린 arin@example.com 회원가입 완료 2026-06-28" [ref=e161]:
+                  - cell "최 최아린 arin@example.com" [ref=e162]:
+                    - generic [ref=e163]:
+                      - generic [ref=e165]: 최
+                      - generic [ref=e166]:
+                        - paragraph [ref=e167]: 최아린
+                        - paragraph [ref=e168]: arin@example.com
+                  - cell "회원가입" [ref=e169]
+                  - cell "완료" [ref=e170]:
+                    - generic [ref=e171]: 완료
+                  - cell "2026-06-28" [ref=e172]
+                - row "정 정하은 haeun@example.com 비밀번호 변경 대기 2026-06-27" [ref=e173]:
+                  - cell "정 정하은 haeun@example.com" [ref=e174]:
+                    - generic [ref=e175]:
+                      - generic [ref=e177]: 정
+                      - generic [ref=e178]:
+                        - paragraph [ref=e179]: 정하은
+                        - paragraph [ref=e180]: haeun@example.com
+                  - cell "비밀번호 변경" [ref=e181]
+                  - cell "대기" [ref=e182]:
+                    - generic [ref=e183]: 대기
+                  - cell "2026-06-27" [ref=e184]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e190] [cursor=pointer]:
+    - img [ref=e191]

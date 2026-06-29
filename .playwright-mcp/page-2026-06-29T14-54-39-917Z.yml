@@ -1,0 +1,233 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "StarterKit" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: StarterKit
+      - navigation [ref=e8]:
+        - link "홈" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "예제" [ref=e10] [cursor=pointer]:
+          - /url: /examples
+        - link "문서" [ref=e11] [cursor=pointer]:
+          - /url: /docs
+      - generic [ref=e12]:
+        - button "테마 전환" [ref=e13]:
+          - img
+        - generic [ref=e14]:
+          - link "로그인" [ref=e15] [cursor=pointer]:
+            - /url: /login
+          - link "시작하기" [ref=e16] [cursor=pointer]:
+            - /url: /register
+  - generic [ref=e17]:
+    - complementary [ref=e18]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: 컴포넌트
+        - link "Button" [ref=e21] [cursor=pointer]:
+          - /url: "#buttons"
+        - link "Badge" [ref=e22] [cursor=pointer]:
+          - /url: "#badges"
+        - link "Card" [ref=e23] [cursor=pointer]:
+          - /url: "#cards"
+        - link "Input" [ref=e24] [cursor=pointer]:
+          - /url: "#inputs"
+        - link "Alert" [ref=e25] [cursor=pointer]:
+          - /url: "#alerts"
+        - link "Avatar" [ref=e26] [cursor=pointer]:
+          - /url: "#avatar"
+        - link "Switch / Checkbox" [ref=e27] [cursor=pointer]:
+          - /url: "#toggles"
+        - link "Progress" [ref=e28] [cursor=pointer]:
+          - /url: "#progress"
+        - link "Skeleton" [ref=e29] [cursor=pointer]:
+          - /url: "#skeleton"
+        - link "Tabs" [ref=e30] [cursor=pointer]:
+          - /url: "#tabs"
+        - link "Select" [ref=e31] [cursor=pointer]:
+          - /url: "#select"
+        - link "Tooltip" [ref=e32] [cursor=pointer]:
+          - /url: "#tooltip"
+    - main [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]: 컴포넌트 예제
+        - heading "UI 컴포넌트" [level=1] [ref=e36]
+        - paragraph [ref=e37]: shadcn/ui 기반으로 구성된 컴포넌트들을 직접 확인해보세요.
+      - generic [ref=e38]:
+        - heading "Button" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - button "Default" [ref=e42]
+          - button "Secondary" [ref=e43]
+          - button "Outline" [ref=e44]
+          - button "Destructive" [ref=e45]
+          - button "Ghost" [ref=e46]
+          - button "Link" [ref=e47]
+        - generic [ref=e48]:
+          - button "Small" [ref=e49]
+          - button "Default" [ref=e50]
+          - button "Large" [ref=e51]
+          - button "Disabled" [disabled]
+          - button [ref=e52]:
+            - img
+      - generic [ref=e53]:
+        - heading "Badge" [level=2] [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]: Default
+          - generic [ref=e58]: Secondary
+          - generic [ref=e59]: Outline
+          - generic [ref=e60]: Destructive
+      - generic [ref=e61]:
+        - heading "Card" [level=2] [ref=e63]
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: 카드 제목
+              - generic [ref=e68]: 카드에 대한 간단한 설명을 여기에 작성합니다.
+            - paragraph [ref=e70]: 카드 본문 영역입니다. 다양한 콘텐츠를 담을 수 있습니다.
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - img [ref=e74]
+                - text: 강조 카드
+              - generic [ref=e76]: 중요한 정보를 강조할 때 사용합니다.
+            - button "액션 버튼" [ref=e78]
+      - generic [ref=e79]:
+        - heading "Input / Textarea" [level=2] [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: 일반 입력
+            - textbox "일반 입력" [ref=e85]:
+              - /placeholder: 텍스트를 입력하세요
+          - generic [ref=e86]:
+            - generic [ref=e87]: 비활성화
+            - textbox "비활성화" [disabled]:
+              - /placeholder: 수정 불가
+          - generic [ref=e88]:
+            - generic [ref=e89]: 비밀번호
+            - textbox "비밀번호" [ref=e90]:
+              - /placeholder: ••••••••
+          - generic [ref=e91]:
+            - generic [ref=e92]: Textarea
+            - textbox "Textarea" [ref=e93]:
+              - /placeholder: 여러 줄 입력...
+      - generic [ref=e94]:
+        - heading "Alert" [level=2] [ref=e96]
+        - generic [ref=e97]:
+          - alert [ref=e98]:
+            - img [ref=e99]
+            - generic [ref=e101]: 안내
+            - generic [ref=e102]: 일반적인 정보를 전달하는 알림입니다.
+          - alert [ref=e103]:
+            - img [ref=e104]
+            - generic [ref=e106]: 오류
+            - generic [ref=e107]: 문제가 발생했을 때 표시하는 알림입니다.
+      - generic [ref=e108]:
+        - heading "Avatar" [level=2] [ref=e110]
+        - generic [ref=e111]:
+          - generic [ref=e113]: 김
+          - img [ref=e116]
+          - generic [ref=e120]: AB
+          - generic [ref=e122]: JD
+      - generic [ref=e123]:
+        - heading "Switch / Checkbox" [level=2] [ref=e125]
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - switch "알림 수신 (꺼짐)" [ref=e128]
+            - checkbox
+            - generic [ref=e129]: 알림 수신 (꺼짐)
+          - generic [ref=e130]:
+            - switch "비활성화" [disabled] [ref=e131]
+            - checkbox [disabled]
+            - generic [ref=e132]: 비활성화
+          - generic [ref=e133]:
+            - checkbox "이용약관에 동의합니다" [ref=e134]
+            - checkbox
+            - generic [ref=e135]: 이용약관에 동의합니다
+          - generic [ref=e136]:
+            - checkbox "비활성화" [disabled] [ref=e137]
+            - checkbox [disabled]
+            - generic [ref=e138]: 비활성화
+      - generic [ref=e139]:
+        - heading "Progress" [level=2] [ref=e141]
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - generic [ref=e145]: 진행률
+              - generic [ref=e146]: 68%
+            - progressbar [ref=e147]
+          - progressbar [ref=e149]
+          - progressbar [ref=e151]
+          - progressbar [ref=e153]
+      - heading "Skeleton" [level=2] [ref=e157]
+      - generic [ref=e167]:
+        - heading "Tabs" [level=2] [ref=e169]
+        - generic [ref=e170]:
+          - tablist [ref=e171]:
+            - tab "개요" [selected] [ref=e172]
+            - tab "설정" [ref=e173]
+            - tab "기록" [ref=e174]
+          - tabpanel "개요" [ref=e175]:
+            - paragraph [ref=e178]: 개요 탭의 콘텐츠입니다. 프로젝트의 요약 정보를 보여줍니다.
+      - generic [ref=e179]:
+        - heading "Select" [level=2] [ref=e181]
+        - generic [ref=e182]:
+          - combobox [ref=e183]:
+            - generic: 역할을 선택하세요
+            - img
+          - combobox [ref=e184]
+          - combobox [disabled] [ref=e185]:
+            - generic: 비활성화
+            - img
+          - combobox [disabled] [ref=e186]
+      - generic [ref=e187]:
+        - heading "Tooltip" [level=2] [ref=e189]
+        - generic [ref=e190]:
+          - button "버튼에 호버하세요" [ref=e191]
+          - button [ref=e192]:
+            - img
+  - contentinfo [ref=e193]:
+    - generic [ref=e194]:
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - link "StarterKit" [ref=e197] [cursor=pointer]:
+            - /url: /
+            - img [ref=e198]
+            - generic [ref=e200]: StarterKit
+          - paragraph [ref=e201]: 모던 Next.js 스타터킷 — 빠르게 웹 개발을 시작하세요
+        - generic [ref=e202]:
+          - heading "제품" [level=3] [ref=e203]
+          - list [ref=e204]:
+            - listitem [ref=e205]:
+              - link "기능" [ref=e206] [cursor=pointer]:
+                - /url: /#features
+            - listitem [ref=e207]:
+              - link "가격" [ref=e208] [cursor=pointer]:
+                - /url: /#pricing
+            - listitem [ref=e209]:
+              - link "문서" [ref=e210] [cursor=pointer]:
+                - /url: /docs
+        - generic [ref=e211]:
+          - heading "회사" [level=3] [ref=e212]
+          - list [ref=e213]:
+            - listitem [ref=e214]:
+              - link "소개" [ref=e215] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e216]:
+              - link "블로그" [ref=e217] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e218]:
+              - link "채용" [ref=e219] [cursor=pointer]:
+                - /url: /careers
+        - generic [ref=e220]:
+          - heading "법적" [level=3] [ref=e221]
+          - list [ref=e222]:
+            - listitem [ref=e223]:
+              - link "개인정보처리방침" [ref=e224] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e225]:
+              - link "이용약관" [ref=e226] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e227]: © 2026 StarterKit. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e233] [cursor=pointer]:
+    - img [ref=e234]

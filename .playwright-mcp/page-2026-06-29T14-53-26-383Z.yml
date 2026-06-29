@@ -1,0 +1,150 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "StarterKit" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: StarterKit
+      - navigation [ref=e8]:
+        - link "홈" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "예제" [ref=e10] [cursor=pointer]:
+          - /url: /examples
+        - link "문서" [ref=e11] [cursor=pointer]:
+          - /url: /docs
+      - generic [ref=e12]:
+        - button "테마 전환" [ref=e13]:
+          - img
+        - generic [ref=e14]:
+          - link "로그인" [ref=e15] [cursor=pointer]:
+            - /url: /login
+          - link "시작하기" [ref=e16] [cursor=pointer]:
+            - /url: /register
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: Next.js 15 + React 19
+      - heading "웹 개발을 빠르게 시작하는 모던 스타터킷" [level=1] [ref=e20]:
+        - text: 웹 개발을 빠르게 시작하는
+        - text: 모던 스타터킷
+      - paragraph [ref=e21]: 검증된 기술 스택과 재사용 가능한 컴포넌트로 아이디어를 빠르게 제품으로 만들어보세요.
+      - generic [ref=e22]:
+        - link "무료로 시작하기" [ref=e23] [cursor=pointer]:
+          - /url: /register
+          - text: 무료로 시작하기
+          - img
+        - link "데모 보기" [ref=e24] [cursor=pointer]:
+          - /url: /dashboard
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "모든 것이 준비되어 있습니다" [level=2] [ref=e27]
+        - paragraph [ref=e28]: 처음부터 설정할 필요 없이 바로 기능 개발에 집중하세요.
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e33]
+            - generic [ref=e35]: 빠른 성능
+          - paragraph [ref=e37]: Next.js 15 App Router와 React 19로 최적화된 성능을 경험하세요.
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - img [ref=e41]
+            - generic [ref=e47]: 아름다운 UI
+          - paragraph [ref=e49]: shadcn/ui와 Tailwind CSS로 모던하고 접근성 높은 인터페이스를 제공합니다.
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - img [ref=e53]
+            - generic [ref=e55]: 타입 안전성
+          - paragraph [ref=e57]: TypeScript와 Zod로 런타임 오류를 줄이고 개발 생산성을 높입니다.
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - img [ref=e61]
+            - generic [ref=e64]: 인증 준비 완료
+          - paragraph [ref=e66]: 로그인, 회원가입 폼이 react-hook-form과 zod로 구현되어 있습니다.
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - img [ref=e70]
+            - generic [ref=e72]: 대시보드 템플릿
+          - paragraph [ref=e74]: 통계 카드, 테이블, 사이드바가 포함된 완성형 대시보드를 즉시 사용하세요.
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - img [ref=e78]
+            - generic [ref=e81]: 다크모드 지원
+          - paragraph [ref=e83]: next-themes로 시스템 설정을 따르는 완벽한 다크모드를 지원합니다.
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - heading "지금 바로 시작하세요" [level=2] [ref=e88]
+        - paragraph [ref=e89]: 설정에 시간을 낭비하지 말고 제품 개발에 집중하세요.
+        - link "무료로 시작하기" [ref=e90] [cursor=pointer]:
+          - /url: /register
+          - text: 무료로 시작하기
+          - img
+      - list [ref=e91]:
+        - listitem [ref=e92]:
+          - img [ref=e93]
+          - text: Next.js 15 App Router
+        - listitem [ref=e96]:
+          - img [ref=e97]
+          - text: TypeScript + Zod 타입 검증
+        - listitem [ref=e100]:
+          - img [ref=e101]
+          - text: shadcn/ui 20+ 컴포넌트
+        - listitem [ref=e104]:
+          - img [ref=e105]
+          - text: 다크모드 (next-themes)
+        - listitem [ref=e108]:
+          - img [ref=e109]
+          - text: react-hook-form 폼 관리
+        - listitem [ref=e112]:
+          - img [ref=e113]
+          - text: usehooks-ts 유틸리티 훅
+        - listitem [ref=e116]:
+          - img [ref=e117]
+          - text: 반응형 레이아웃
+        - listitem [ref=e120]:
+          - img [ref=e121]
+          - text: 대시보드 + 인증 페이지
+  - contentinfo [ref=e124]:
+    - generic [ref=e125]:
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - link "StarterKit" [ref=e128] [cursor=pointer]:
+            - /url: /
+            - img [ref=e129]
+            - generic [ref=e131]: StarterKit
+          - paragraph [ref=e132]: 모던 Next.js 스타터킷 — 빠르게 웹 개발을 시작하세요
+        - generic [ref=e133]:
+          - heading "제품" [level=3] [ref=e134]
+          - list [ref=e135]:
+            - listitem [ref=e136]:
+              - link "기능" [ref=e137] [cursor=pointer]:
+                - /url: /#features
+            - listitem [ref=e138]:
+              - link "가격" [ref=e139] [cursor=pointer]:
+                - /url: /#pricing
+            - listitem [ref=e140]:
+              - link "문서" [ref=e141] [cursor=pointer]:
+                - /url: /docs
+        - generic [ref=e142]:
+          - heading "회사" [level=3] [ref=e143]
+          - list [ref=e144]:
+            - listitem [ref=e145]:
+              - link "소개" [ref=e146] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e147]:
+              - link "블로그" [ref=e148] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e149]:
+              - link "채용" [ref=e150] [cursor=pointer]:
+                - /url: /careers
+        - generic [ref=e151]:
+          - heading "법적" [level=3] [ref=e152]
+          - list [ref=e153]:
+            - listitem [ref=e154]:
+              - link "개인정보처리방침" [ref=e155] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e156]:
+              - link "이용약관" [ref=e157] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e158]: © 2026 StarterKit. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e164] [cursor=pointer]:
+    - img [ref=e165]

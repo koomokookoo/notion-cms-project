@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - link "StarterKit" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: StarterKit
+      - navigation [ref=e10]:
+        - link "대시보드" [ref=e11] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e12]
+          - text: 대시보드
+        - link "사용자" [ref=e17] [cursor=pointer]:
+          - /url: /dashboard/users
+          - img [ref=e18]
+          - text: 사용자
+        - link "분석" [ref=e23] [cursor=pointer]:
+          - /url: /dashboard/analytics
+          - img [ref=e24]
+          - text: 분석
+        - link "문서" [ref=e26] [cursor=pointer]:
+          - /url: /dashboard/documents
+          - img [ref=e27]
+          - text: 문서
+        - link "알림" [ref=e30] [cursor=pointer]:
+          - /url: /dashboard/notifications
+          - img [ref=e31]
+          - text: 알림
+        - link "설정" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - text: 설정
+    - generic [ref=e38]:
+      - banner [ref=e39]:
+        - generic [ref=e40]:
+          - button "테마 전환" [ref=e41]:
+            - img
+          - button "알림" [ref=e42]:
+            - img
+          - button "홍" [ref=e43]:
+            - generic [ref=e45]: 홍
+      - main [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e49]:
+            - heading "알림" [level=1] [ref=e50]
+            - paragraph [ref=e51]: 읽지 않은 알림이 3개 있습니다.
+          - generic [ref=e52]:
+            - generic [ref=e54]:
+              - img [ref=e55]
+              - generic [ref=e57]:
+                - generic [ref=e58]:
+                  - paragraph [ref=e59]: 신규 사용자 가입
+                  - generic [ref=e60]:
+                    - img
+                    - text: 새 알림
+                - paragraph [ref=e61]: 강지호님이 새로 가입했습니다.
+                - paragraph [ref=e62]: 2026-06-29 14:32
+            - generic [ref=e64]:
+              - img [ref=e65]
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - paragraph [ref=e70]: 결제 완료
+                  - generic [ref=e71]:
+                    - img
+                    - text: 새 알림
+                - paragraph [ref=e72]: 이서연님의 프리미엄 플랜 결제가 완료되었습니다.
+                - paragraph [ref=e73]: 2026-06-29 11:15
+            - generic [ref=e75]:
+              - img [ref=e76]
+              - generic [ref=e78]:
+                - generic [ref=e79]:
+                  - paragraph [ref=e80]: 서버 점검 예정
+                  - generic [ref=e81]:
+                    - img
+                    - text: 새 알림
+                - paragraph [ref=e82]: 6월 30일 02:00 ~ 04:00 정기 점검이 예정되어 있습니다.
+                - paragraph [ref=e83]: 2026-06-28 18:00
+            - generic [ref=e85]:
+              - img [ref=e86]
+              - generic [ref=e89]:
+                - paragraph [ref=e91]: 보고서 생성 완료
+                - paragraph [ref=e92]: Q2 분기 보고서가 생성되었습니다. 확인해보세요.
+                - paragraph [ref=e93]: 2026-06-28 09:40
+            - generic [ref=e95]:
+              - img [ref=e96]
+              - generic [ref=e98]:
+                - paragraph [ref=e100]: 새 댓글
+                - paragraph [ref=e101]: 박도윤님이 문서에 댓글을 남겼습니다.
+                - paragraph [ref=e102]: 2026-06-27 15:22
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e108] [cursor=pointer]:
+    - img [ref=e109]
