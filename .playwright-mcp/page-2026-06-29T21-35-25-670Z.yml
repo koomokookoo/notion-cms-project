@@ -1,0 +1,64 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "개발 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: 개발 블로그
+      - navigation [ref=e8]:
+        - link "홈" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "카테고리" [ref=e10] [cursor=pointer]:
+          - /url: /category
+      - button "테마 전환" [ref=e12]:
+        - img
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - heading "개발 블로그" [level=1] [ref=e15]
+      - paragraph [ref=e16]: Notion으로 운영하는 개인 기술 블로그
+    - generic [ref=e17]:
+      - searchbox "글 제목으로 검색..." [ref=e18]
+      - generic [ref=e19]:
+        - tablist [ref=e21]:
+          - tab "전체" [selected] [ref=e22]
+          - tab "Next.js" [ref=e23]
+          - tab "react" [ref=e24]
+        - tabpanel "전체" [ref=e25]:
+          - generic [ref=e26]:
+            - link "Next.js 2026년 6월 30일 test2 8" [ref=e27] [cursor=pointer]:
+              - /url: /posts/38e6d1c8-3ca3-80c5-b001-de1d05a23693
+              - generic [ref=e28]:
+                - generic [ref=e29]:
+                  - generic [ref=e30]:
+                    - generic [ref=e31]: Next.js
+                    - generic [ref=e32]: 2026년 6월 30일
+                  - generic [ref=e33]: test2
+                - generic [ref=e36]: "8"
+            - link "react 2026년 6월 29일 test3 7" [ref=e37] [cursor=pointer]:
+              - /url: /posts/38e6d1c8-3ca3-80e1-abb3-e633ed4f8d6a
+              - generic [ref=e38]:
+                - generic [ref=e39]:
+                  - generic [ref=e40]:
+                    - generic [ref=e41]: react
+                    - generic [ref=e42]: 2026년 6월 29일
+                  - generic [ref=e43]: test3
+                - generic [ref=e46]: "7"
+  - contentinfo [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - link "개발 블로그" [ref=e51] [cursor=pointer]:
+            - /url: /
+            - img [ref=e52]
+            - generic [ref=e54]: 개발 블로그
+          - paragraph [ref=e55]: Notion으로 운영하는 개인 기술 블로그
+        - navigation [ref=e56]:
+          - link "홈" [ref=e57] [cursor=pointer]:
+            - /url: /
+          - link "카테고리" [ref=e58] [cursor=pointer]:
+            - /url: /category
+      - generic [ref=e59]: © 2026 개발 블로그. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]

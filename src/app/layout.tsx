@@ -16,11 +16,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-blog.vercel.app"
+  ),
   title: {
-    default: "StarterKit",
-    template: "%s | StarterKit",
+    default: "개발 블로그",
+    template: "%s | 개발 블로그",
   },
-  description: "모던 Next.js 스타터킷 — 빠르게 웹 개발을 시작하세요",
+  description: "Notion으로 운영하는 개인 기술 블로그",
+  openGraph: {
+    type: "website",
+    siteName: "개발 블로그",
+    description: "Notion으로 운영하는 개인 기술 블로그",
+  },
 };
 
 export default function RootLayout({

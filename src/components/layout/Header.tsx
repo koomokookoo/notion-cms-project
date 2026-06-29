@@ -31,16 +31,6 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <div className="hidden md:flex items-center gap-2">
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/login">로그인</Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link href="/register">시작하기</Link>
-            </Button>
-          </div>
-
-          {/* 모바일 메뉴 토글 */}
           <Button
             variant="ghost"
             size="icon"
@@ -66,14 +56,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <div className="flex flex-col gap-2 pt-2 border-t">
-            <Button variant="outline" asChild>
-              <Link href="/login">로그인</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/register">시작하기</Link>
-            </Button>
-          </div>
         </div>
       )}
     </header>

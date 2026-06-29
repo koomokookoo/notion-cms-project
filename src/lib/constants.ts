@@ -1,30 +1,15 @@
-import {
-  LayoutDashboard,
-  Settings,
-  Users,
-  BarChart3,
-  FileText,
-  Bell,
-} from "lucide-react";
 import type { NavItem, SiteConfig } from "@/types";
 
 export const SITE_CONFIG: SiteConfig = {
-  name: "StarterKit",
-  description: "모던 Next.js 스타터킷 — 빠르게 웹 개발을 시작하세요",
-  url: "https://example.com",
+  name: "개발 블로그",
+  description: "Notion으로 운영하는 개인 기술 블로그",
+  url: "https://your-blog.vercel.app",
 };
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "홈", href: "/" },
-  { label: "예제", href: "/examples" },
-  { label: "문서", href: "/docs" },
+  { label: "카테고리", href: "/category" },
 ];
 
-export const SIDEBAR_ITEMS: NavItem[] = [
-  { label: "대시보드", href: "/dashboard", icon: LayoutDashboard },
-  { label: "사용자", href: "/dashboard/users", icon: Users },
-  { label: "분석", href: "/dashboard/analytics", icon: BarChart3 },
-  { label: "문서", href: "/dashboard/documents", icon: FileText },
-  { label: "알림", href: "/dashboard/notifications", icon: Bell },
-  { label: "설정", href: "/settings", icon: Settings },
-];
+// 블로그에서는 사이드바를 사용하지 않으므로 빈 배열로 유지
+export const SIDEBAR_ITEMS: NavItem[] = [];

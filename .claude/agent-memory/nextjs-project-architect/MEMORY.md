@@ -1,0 +1,1 @@
+- [Phase 1 초기 설정](project-phase1-setup.md) — @notionhq/client 설치, blog/notion 디렉토리, 레이아웃·constants 블로그용으로 업데이트 완료

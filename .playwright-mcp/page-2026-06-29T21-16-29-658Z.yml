@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "개발 블로그" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: 개발 블로그
+      - navigation [ref=e8]:
+        - link "홈" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "카테고리" [ref=e10] [cursor=pointer]:
+          - /url: /category
+      - button "테마 전환" [ref=e12]:
+        - img
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - heading "개발 블로그" [level=1] [ref=e15]
+      - paragraph [ref=e16]: Notion으로 운영하는 개인 기술 블로그
+    - generic [ref=e17]:
+      - searchbox "글 제목으로 검색..." [ref=e18]
+      - generic [ref=e19]:
+        - tablist [ref=e21]:
+          - tab "전체" [selected] [ref=e22]
+        - tabpanel "전체" [ref=e23]:
+          - generic [ref=e24]:
+            - paragraph [ref=e25]: 아직 게시된 글이 없습니다.
+            - paragraph [ref=e26]: 곧 새로운 글로 찾아올게요!
+  - contentinfo [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - link "개발 블로그" [ref=e31] [cursor=pointer]:
+            - /url: /
+            - img [ref=e32]
+            - generic [ref=e34]: 개발 블로그
+          - paragraph [ref=e35]: Notion으로 운영하는 개인 기술 블로그
+        - navigation [ref=e36]:
+          - link "홈" [ref=e37] [cursor=pointer]:
+            - /url: /
+          - link "카테고리" [ref=e38] [cursor=pointer]:
+            - /url: /category
+      - generic [ref=e39]: © 2026 개발 블로그. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e45] [cursor=pointer]:
+    - img [ref=e46]
+  - alert [ref=e49]
