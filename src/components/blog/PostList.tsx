@@ -3,9 +3,10 @@ import type { Post } from "@/types/notion";
 
 interface PostListProps {
   posts: Post[];
+  onTagClick?: (tag: string) => void;
 }
 
-export function PostList({ posts }: PostListProps) {
+export function PostList({ posts, onTagClick }: PostListProps) {
   if (posts.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
@@ -18,7 +19,7 @@ export function PostList({ posts }: PostListProps) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} onTagClick={onTagClick} />
       ))}
     </div>
   );

@@ -5,9 +5,10 @@ import type { Post } from "@/types/notion";
 
 interface PostCardProps {
   post: Post;
+  onTagClick?: (tag: string) => void;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, onTagClick }: PostCardProps) {
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("ko-KR", {
         year: "numeric",
@@ -36,8 +37,21 @@ export function PostCard({ post }: PostCardProps) {
           <CardContent>
             <div className="flex flex-wrap gap-1">
               {post.tags.map((tag) => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  {tag}
+                <Badge
+                  key={tag}
+                  variant="outline"
+                  className={`text-xs cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors ${
+                    onTagClick ? "hover:border-primary" : ""
+                  }`}
+                  onClick={(e) => {
+                    if (onTagClick) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onTagClick(tag);
+                    }
+                  }}
+                >
+                  #{tag}
                 </Badge>
               ))}
             </div>
