@@ -1,3 +1,5 @@
+"use client";
+
 import { PostCard } from "@/components/blog/PostCard";
 import type { Post } from "@/types/notion";
 
